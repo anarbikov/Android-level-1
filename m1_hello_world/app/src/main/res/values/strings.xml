@@ -2,6 +2,7 @@
     <string name="app_name">Counter</string>
     <string name="resetButton">Reset</string>
     <string name="centralTextViewDefault">All seats are available</string>
+    <string name="seats_left_string">Seats left: %s</string>
     <string name="centralTextViewExceeds">All seats are taken</string>
     <string name="decreasePassengerButton">-</string>
     <string name="increasePassengerButton">+</string>
