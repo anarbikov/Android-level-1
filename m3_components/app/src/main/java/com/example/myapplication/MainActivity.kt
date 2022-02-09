@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         seekBar(binding)
         startButton(binding)
     }
-}
 
-fun dayNightMode(binding: ActivityMainBinding) {
+
+private fun dayNightMode(binding: ActivityMainBinding) {
     binding.nightModeSwitch.setOnCheckedChangeListener { _, _ ->
         if (binding.nightModeSwitch.isChecked) {
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
@@ -29,7 +29,7 @@ fun dayNightMode(binding: ActivityMainBinding) {
     }
 }
 
-fun seekBar(binding: ActivityMainBinding) {
+private fun seekBar(binding: ActivityMainBinding) {
     binding.seekBar2.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
         override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
             binding.counterTextView.text = p1.toString()
@@ -42,7 +42,7 @@ fun seekBar(binding: ActivityMainBinding) {
     })
 }
 
-fun startButton(binding: ActivityMainBinding) {
+private fun startButton(binding: ActivityMainBinding) {
     binding.startButton.setOnClickListener {
         val scope = CoroutineScope(Job() + Dispatchers.Main)
         if (binding.progressBar.max > 0) {
@@ -62,13 +62,13 @@ fun startButton(binding: ActivityMainBinding) {
 
                 }
                 toDefault(binding)
-//                Toast.makeText("Test toast", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity,"Test toast", Toast.LENGTH_LONG).show()
             }
         }
     }
 }
 
-fun toDefault(binding: ActivityMainBinding) {
+private fun toDefault(binding: ActivityMainBinding) {
     binding.seekBar2.isEnabled = true
     binding.seekBar2.progress = 0
     binding.startButton.text = binding.startButton.context.getString(R.string.start_button)
@@ -76,4 +76,5 @@ fun toDefault(binding: ActivityMainBinding) {
     binding.progressBar.max = 0
     binding.progressBar.progress = 0
     startButton(binding)
+}
 }
